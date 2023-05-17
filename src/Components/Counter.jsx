@@ -7,20 +7,26 @@ class Counter extends React.Component {
     this.handleDefence = this.handleDefence.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.state = {
-        count: 0,
-    }
+      count: 0,
+    };
   }
 
   handleOffence() {
-    //alert("attack clicked");
-    this.setState({count: this.state.count + 1});
+    this.setState((previousState) => {
+        return {
+            count: previousState.count + 1,
+        };
+    });
   }
   handleDefence() {
-    //alert("defence clicked");
-    this.setState({count: this.state.count - 1});
+    this.setState((previousState) => {
+        return {
+            count: previousState.count - 1,
+        };
+    });
   }
   handleReset() {
-    this.setState({count: 0});
+    this.setState({ count: 0 });
   }
   render() {
     return (
@@ -32,7 +38,9 @@ class Counter extends React.Component {
         <button onClick={this.handleDefence} className="width-200px">
           -1
         </button>
-        <button onClick={this.handleReset} className="width-200px">Reset</button>
+        <button onClick={this.handleReset} className="width-200px">
+          Reset
+        </button>
       </div>
     );
   }
