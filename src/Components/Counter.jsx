@@ -7,6 +7,8 @@ class Counter extends React.Component {
     super(props);
     this.state = {
       count: 0,
+      lastPlay: "",
+      gameStatus: "",
     };
   }
 
@@ -15,6 +17,9 @@ class Counter extends React.Component {
         let newCount = previousState.count + Math.round(Math.random() * 10);
       return {
         count: newCount,
+        lastPlay: "Offence",
+        //gameStatus: newCount < 10 || newCount > -10 ? "" : "",
+        gameStatus: newCount > 10 ? "You Won !" : previousState.gameStatus,
       };
     });
   }
@@ -23,6 +28,9 @@ class Counter extends React.Component {
         let newCount = previousState.count - Math.round(Math.random() * 10);
       return {
         count: newCount,
+        lastPlay: "Defence",
+        //gameStatus: newCount < 10 || newCount > -10 ? "" : "",
+        gameStatus: newCount < -10 ? "You Lose !" : previousState.gameStatus,
       };
     });
   }
@@ -40,6 +48,7 @@ class Counter extends React.Component {
     this.setState(() => {
         return {
             count: 0,
+            gameStatus: "",
         };
     });
   }
@@ -49,8 +58,8 @@ class Counter extends React.Component {
       <div className="row text-center">
         <h1>Score: {this.state.count}</h1>
         <p>You win at +10 points and lose at -10 points!</p>
-        <p>Last Play: </p>
-        <h3>Game Status: </h3>
+        <p>Last Play: {this.state.lastPlay}</p>
+        <h3>Game Status: {this.state.gameStatus}</h3>
         <div className="col-6 col-md-3 offset-md-3">
           <img
             className="image-styles image-border-green p-4 rounded"
