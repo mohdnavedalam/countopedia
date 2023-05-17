@@ -5,8 +5,29 @@
 .banner-style {
     display: inline-flex;
     width: 100%;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.footer-style {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid whitesmoke;
+    margin-top: 30px;
 }
 
 .width-200px {
     width: 200px;
+}
+
+.image-styles {
+    width: 50%;
+    cursor: pointer;
+}
+
+.image-border-green {
+    border: 1px solid green;
+}
+
+.image-border-red {
+    border: 1px solid red;
 }
